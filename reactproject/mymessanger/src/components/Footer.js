@@ -16,6 +16,7 @@ export default class Footer extends React.Component {
     }
     onChangeText(e){
       this.setState({newMessage: e.target.value})
+      // this.props.getNewMessage(e.target.value)
     }
     sendNewMessage(){
       this.props.dispatch(addNewMessage(this.state.newMessage))
@@ -60,13 +61,13 @@ export default class Footer extends React.Component {
     render () {
       return (
         <div className='footer'>
-          <div>
-            { this.state.openEmoji &&
+          <div className='emojiContainer'>
+            { this.state.openEmoji ?
               <span className='emojipick'>
                 <Picker onSelect={this.addEmoji} />
-              </span>
-            }
-            
+              </span> :
+              <div style={{ height: '427px'}}></div>
+            } 
             <img className='emoji' src={emojiicon} onClick={ () => this.emojiHandleClick()} />      
           </div>
           <input 

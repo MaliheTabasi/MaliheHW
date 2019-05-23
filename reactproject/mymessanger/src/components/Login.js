@@ -22,7 +22,7 @@ class Login extends React.Component {
 
   handleChange (e) {
     var name = e.target.name
-    this.setState({ [name]: e.target.value })
+    this.setState({ [name]: e.target.value } ,console.log("here", this.state))
   }
 
   handleClick () {

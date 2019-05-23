@@ -7,8 +7,7 @@ export default class Massenger extends React.Component {
   render () {
     return (
       <div className='whole'>
-      {/* <ConvListContainer/> */}
-        <ConvList />
+        <ConvListContainer />
         <Chat/>
       </div>
     )

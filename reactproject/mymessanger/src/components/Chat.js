@@ -15,6 +15,7 @@ export default class Chat extends React.Component {
   //   console.log("i am here", newMessage)
   //   this.setState({newMessage: newMessage})
   // }
+
   render () {
     return (
       <div className='chatcontainer'>
@@ -23,9 +24,11 @@ export default class Chat extends React.Component {
           <span>zahra</span>
         </div>
         <ChatScreenContainer />
-        <FooterContainer />
+        <FooterContainer  />
       </div>
     )
   }
 }
 
+// newMessage = {this.state.newMessage}
+// getNewMessage={(newMessage) => this.getNewMessage(newMessage)}

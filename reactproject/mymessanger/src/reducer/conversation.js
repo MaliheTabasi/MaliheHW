@@ -1,7 +1,7 @@
 const INIT ={
     newMessage: '',
-    messages:[]
-    // , convList:[]
+    messages:[],
+    conversationList:[]
 }
 
 function conversation (state = INIT,action)  {
@@ -12,11 +12,11 @@ switch(action.type){
         newMessage: action.payload,
         messages: [...state.messages, {id:1 , message: action.payload}]
      }
-    // case 'SAVE_CONVERSATION_LIST' :
-    // return {
-    //     ...state ,
-    //     convList: action.payload
-    //  }
+    case 'SAVE_CONVERSATION_LIST' :
+    return {
+        ...state ,
+        conversationList: action.payload
+     }
 
     default:
     return state

@@ -1,15 +1,18 @@
-import { connect} from 'react-redux'
+import {connect} from 'react-redux'
 import  ConvList from '../components/ConvList'
-const mapDispatchToProps = dispatch =>({
-    dispatch : dispatch
-})
+
 const mapStateToProps = state =>{ 
     return{
-    ConvList: state.ConvList
+        conversationList: state.conversationList
     }
 }
 
+const mapDispatchToProps = dispatch =>({
+    dispatch : dispatch
+})
+
 const ConvListContainer = connect (
+    mapStateToProps,
     mapDispatchToProps
 )(ConvList)
 export default ConvListContainer

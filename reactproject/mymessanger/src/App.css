@@ -128,11 +128,38 @@
 
 .convlistclass {
   border: 1px solid #f02368;
-  width: 30vw;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   background-color: #fcffcc;
 }
 
+::placeholder {
+  color:red;
+  padding: 5px 20px;
+}
+.searchContact{
+  width: 25vw;
+  height: 4vh;
+  border: 1px solid white;
+  background-color: white;
+  padding: 3px;
+  text-align: right;
+  font-family: nazi;
+  
+}
+
+.searchContactContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  border: 1px solid grey;
+  border-radius: 50px;
+  width: 30vw;
+  height: 7vh;
+}
 .chatcontainer {
 
   display: flex;
@@ -179,7 +206,7 @@
   padding: 5px;
   border: 1px solid grey;
   border-radius: 50px;
-  height: 5vh;
+  height:6vh;
   background-color: whitesmoke;
 }
 
@@ -261,7 +288,7 @@
  */
 .inputmessage {
   /* overflow: visible; */
-  width: 80vw;
+  width: 56vw;
   height: 4vh;
   border: 1px solid white;
   background-color: white;
@@ -279,7 +306,14 @@
   width: 40px;
   padding-left: 10px;
   padding-right: 10px;
+  cursor: pointer;
 }
+.emojiContainer{
+  display: flex;
+  flex-direction: column;
+  margin-top: -425px;
+}
+
 
 .sender {
   display: flex;
@@ -485,4 +519,15 @@ background-color: #f36a98;
   background-color: #099b21; 
   font-size: 17px;
   width:35vw;
+}
+
+.suggestedContact{
+  padding: 5px 15px;
+  margin:0;
+  border-bottom: 1px solid green;
+  background-color: whitesmoke;
+}
+.suggestedAvatar {
+  width:25px;
+  border-radius: 20px;
 }

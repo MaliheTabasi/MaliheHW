@@ -7,7 +7,7 @@ export default class Conversation extends React.Component {
       <div className='conv'>
         
         <div className='proficcontainer'>
-          <img className='profpic' src={profilepic} />
+          <img className='profpic' src={this.props.avatar} />
         </div>
         <div className='content'>  
           <div className='eachline'>     
@@ -15,7 +15,7 @@ export default class Conversation extends React.Component {
               {this.props.name}
             </span>
             <span className='lastmessagedate'>
-              {this.props.date}
+              {this.props.date.slice(0,10)}
             </span>                   
           </div>
           <div className='eachline'>

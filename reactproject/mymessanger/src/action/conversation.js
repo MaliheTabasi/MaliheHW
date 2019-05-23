@@ -4,10 +4,10 @@ export const addNewMessage = (newMessage) => ({
         payload: newMessage
 
 })
-// export const saveConvList = (convList) => ({
+export const saveConvList = (conversationList) => ({
 
-//     type:'SAVE_CONVERSATION_LIST',
-//     payload: convList
+    type:'SAVE_CONVERSATION_LIST',
+    payload: conversationList
 
-// })
+})
  

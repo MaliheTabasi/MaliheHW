@@ -14,17 +14,17 @@ class App extends React.Component {
   render () {
     return (
       <Provider store={store}>
-      <Massenger/>
+        <Router>
+          <div>
+            <Route exact path="/" component={Login} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/massenger" component={Massenger} />
+            <Route path="/profile" component={Profile} />
+          </div>
+        </Router>
+      
       </Provider>
-    //   <Router>
-    //   <div>
-    //     <Route exact path="/" component={Login} />
-    //     <Route path="/signup" component={Signup} />
-    //     <Route path="/massenger" component={Massenger} />
-    //     <Route path="/profile" component={Profile} />
-    //   </div>
-    // </Router>
-  
+    
     )
   }
 };
