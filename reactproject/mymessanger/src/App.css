@@ -1,0 +1,488 @@
+
+@font-face {
+  font-family:'nazi';
+  src:url('fonts/Bnazanb.ttf')
+}
+
+
+
+.App {
+  background-image: url('./images/100.jpg');
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover; 
+  display: flex;
+}
+
+.opacity{
+  opacity: 1;
+}
+.container {
+  opacity:0.9;
+  width: 450PX;
+  height: 550px;
+  background-color: #ffeff2;
+  margin: auto;
+  border-radius: 40px;
+  margin-top: 120px;
+  font-family: nazi;
+  transition: 1s;
+  transition-timing-function: ease;
+}
+.container:hover {
+  opacity: 1;
+}
+
+.logo {
+  margin-top: 20px;
+  width: 100px;
+  transition: width 1s;
+  transition-timing-function: ease;
+}
+.welcome{
+  text-shadow: 1px 1px 2px  #f02368, 0 0 25px #d39aad, 0 0 5px rgb(255, 55, 138);;
+  font-size: 22px;
+}
+
+.logo:hover {
+  width: 110px;
+}
+
+.input1 {
+  display: block;
+  padding: 5px 5px;
+  color: #02330a;
+  width: 80%;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border: 1px solid  grey;
+  border-radius: 20px;
+  font-family: nazi;
+  text-align: right;
+  transition: width 1s;
+  transition-timing-function: ease;
+}
+
+.email {
+  position: relative;
+}
+.emailicon{
+  position: absolute;
+  margin-top: -36px;
+  margin-left: 50px;
+}
+.input1:hover {
+  border: 1.5px solid  #f02368;
+  width:85%;
+}
+
+.submit {
+  font-size: 15px;
+  display: block;
+  background-color: #dd325d;
+  width: 80%;
+  margin: auto;
+  height: 40px;
+  margin-top: 20px;
+  border-color: rgb(0, 199, 76);
+  border-radius: 20px;
+  color: #fff;
+  font-family: nazi;
+  transition:  0.5s;
+  transition-timing-function: ease;
+}
+.submit:hover  {
+  background-color: #099b21; 
+  font-size: 17px;
+  width:85%;
+}
+.error{
+  color:red;
+  font-size: small;
+}
+
+.notuser {
+  margin-top: 20px;
+}
+
+.link {
+  color: green;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.link:hover {
+  color:  #f02368;
+}
+
+.whole {
+  font-family: nazi;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 100vh;
+ 
+}
+
+.convlistclass {
+  border: 1px solid #f02368;
+  width: 30vw;
+  display: inline-block;
+  background-color: #fcffcc;
+}
+
+.chatcontainer {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #f02368;
+  width: 69vw;
+  background-color: #fcffcc;
+  margin-left: 2px;
+}
+
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-grow: 1;
+  align-items: center;
+  border: 1px solid grey;
+  border-radius: 50px;
+  height: 7vh;
+  margin-bottom: 2px;
+  background-color: #b4e8ba;
+}
+
+.screen {
+  background-image: url('./images/whalemelon.jpg');
+  background-size: cover;
+  flex-grow: 60;
+  border: 1px solid grey;
+  border-radius: 50px;
+  margin-bottom: 2px;
+  background-color: whitesmoke; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 50px;
+  height: 5vh;
+  background-color: whitesmoke;
+}
+
+.conv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 50px;
+  height: 7vh;
+  background-color: whitesmoke;
+  
+}
+
+.proficcontainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.profpic{
+  border: 2px solid #118f5f;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 2px 5px;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 5px;
+  flex-grow: 10;
+}
+
+.eachline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+
+.lastmessagedate {
+  font-size: 13px;
+}
+
+.latestmessage {
+  color: gray;
+  font-size: 12px;
+}
+.numberofunseen { 
+  color: #fff;
+  text-align: center;
+  background-color: #ec4e33;
+  border:1px solid #ec4e33;
+  border-radius:15px;  
+  height: 3vh;
+  padding: 0px 5px;
+}
+
+/* .SendScreen {
+  border: 1px solid green;
+  background-color: green;
+  color: white;
+  width: 50%;
+  margin-left: 510px; */
+
+/* } */
+/* .RecieveScreen {
+  border: 1px solid rgb(226, 11, 137);
+  background-color: rgb(226, 11, 137);
+  color: white;
+  width: 50%;
+  margin-left: 0px;
+}
+ */
+.inputmessage {
+  /* overflow: visible; */
+  width: 80vw;
+  height: 4vh;
+  border: 1px solid white;
+  background-color: white;
+  padding: 3px;
+  text-align: right;
+  font-family: nazi;
+}
+
+.send{
+  width: 65px;
+  cursor: pointer;
+}
+
+.emoji {
+  width: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.sender {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.reciever {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.sentmessage {
+  background-image: linear-gradient(to bottom right,  #73d4af,  #118f5f); 
+  border: 1px solid #000;
+  color: white;
+  border-radius: 10px 10px 0px 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 15px;
+  max-width: 45%;
+  opacity: 0.9;
+}
+
+.recievedmessage {
+  background-image: linear-gradient(to bottom left, #f36a98, #f02368); 
+  background-color: ;
+  border: 1px solid #000;
+  color: white;
+  border-radius: 10px 10px 10px 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 15px;
+  max-width: 45%;
+  opacity: 0.9;
+}
+.profPage {
+  background-image: url('./images/6.jpg');
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  font-family: nazi
+}
+.profPageContainer {
+  opacity: 0.9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 50px;
+  width: 60%;
+  background-color:  antiquewhite;
+  transition: opacity 2s;
+
+}
+.profPageContainer:hover {
+  opacity: 1;
+}
+
+.profilePicture {
+  max-width: 200px;
+  border: 1px solid black;
+  border-radius: 30px;
+  margin-left: 40px;
+  margin-top: 40px;
+  background: white;
+}
+.profilePicturetext{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  height: 320px;
+}
+.top{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+
+}
+.inputtop{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 30px;
+  flex-grow: 2;
+  height: 45vh;
+}
+.bot{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 25vh;
+}
+.bio {
+ 
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 70%;
+}
+.logoProfileContainer {
+  width: 29%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+.bioInput{
+  text-align: right;
+  width: 80%;
+  height: 80%;
+  border: 1px solid grey;
+  border-radius: 25px;
+  padding: 10px;
+  font-family: nazi;
+  margin-right: 10px;
+  max-length:700 ;
+}
+.inputLeft {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  justify-content: space-around;
+  width: 45%;
+  align-items: flex-end;
+}
+.inputRight {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  justify-content: space-around;
+  text-align: right;
+  padding-right: 40px;
+}
+.spans{
+  margin-left: 10px;
+}
+
+.logoProfile {
+  width: 100px;
+  transition: width 1s;
+  transition-timing-function: ease;
+}
+.logoProfile:hover {
+  width: 120px;
+}
+.hendoone {
+  border: 1px solid antiquewhite;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  flex-grow: 0.2;
+  font-size: 20px;
+  transition: 1s;
+  transition-timing-function: ease;
+}
+.hendoone:hover {
+font-size: 25px;
+background-color: #f36a98;
+}
+.inputs {
+  width:130px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  transition: width 1s;
+  transition-timing-function: ease;
+  text-align: right;
+  font-family: nazi;
+  padding: 1px 5px;
+}
+.inputs:hover {
+  border: 1.5px solid #dd325d;
+  width:150px;
+}
+.profileSubmit {
+  font-size: 15px;
+  display: block;
+  background-color: #dd325d;
+  margin: auto;
+  height: 40px;
+  margin-top: 20px;
+  border-color: rgb(0, 199, 76);
+  border-radius: 20px;
+  color: #fff;
+  font-family: nazi;
+  margin-bottom: 30px;
+  width: 30vw;
+  transition:  0.5s;
+  transition-timing-function: ease;
+}
+.profileSubmit:hover  {
+  background-color: #099b21; 
+  font-size: 17px;
+  width:35vw;
+}
