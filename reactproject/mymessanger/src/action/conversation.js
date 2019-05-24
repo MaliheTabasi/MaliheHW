@@ -10,4 +10,17 @@ export const saveConvList = (conversationList) => ({
     payload: conversationList
 
 })
+export const saveChatScreenMessages = (messages) => ({
+
+    type:'SAVE_CHATSCREEN_MESSAGES',
+    payload: messages
+
+})
+
+export const UserToHeader = (user) => ({
+
+    type:'TRANSFER_USER_TO_HEADER',
+    payload: user
+
+})
  

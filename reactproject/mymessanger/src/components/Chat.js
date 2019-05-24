@@ -1,7 +1,8 @@
 import React from 'react'
-import profilepic from '../images/profilepic.jpg'
+import Header from '../components/Header'
 import ChatScreenContainer from '../container/ChatScreenContainer'
 import FooterContainer from '../container/FooterContainer'
+import HeaderContainer from '../container/HeaderContainer';
 
 
 export default class Chat extends React.Component {
@@ -19,10 +20,7 @@ export default class Chat extends React.Component {
   render () {
     return (
       <div className='chatcontainer'>
-        <div className='header'>
-          <img className='profpic' src={profilepic} />
-          <span>zahra</span>
-        </div>
+        <HeaderContainer/>
         <ChatScreenContainer />
         <FooterContainer  />
       </div>

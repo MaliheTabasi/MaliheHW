@@ -1,7 +1,10 @@
 const INIT ={
     newMessage: '',
     messages:[],
-    conversationList:[]
+    conversationList:[],
+    user: {
+        first_name: 'Your Name'
+    }
 }
 
 function conversation (state = INIT,action)  {
@@ -10,13 +13,23 @@ switch(action.type){
     return {
         ...state ,
         newMessage: action.payload,
-        messages: [...state.messages, {id:1 , message: action.payload}]
      }
     case 'SAVE_CONVERSATION_LIST' :
     return {
         ...state ,
         conversationList: action.payload
      }
+     case 'SAVE_CHATSCREEN_MESSAGES' :
+    return {
+        ...state ,
+        messages: action.payload
+     }
+     case 'TRANSFER_USER_TO_HEADER' :
+    return {
+        ...state ,
+        user: action.payload
+     }
+
 
     default:
     return state

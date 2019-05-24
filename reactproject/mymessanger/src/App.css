@@ -135,7 +135,7 @@
 }
 
 ::placeholder {
-  color:red;
+  color: #f02368;
   padding: 5px 20px;
 }
 .searchContact{
@@ -160,6 +160,18 @@
   width: 30vw;
   height: 7vh;
 }
+.yourConvList{
+  
+  display: flex;
+  justify-content: center;
+  border: 1px solid greenyellow;
+  margin: 5px 90px;
+  border-radius: 50px;
+  background-color: greenyellow;
+  width: 50%;
+}
+
+
 .chatcontainer {
 
   display: flex;
@@ -179,9 +191,9 @@
   align-items: center;
   border: 1px solid grey;
   border-radius: 50px;
-  height: 7vh;
   margin-bottom: 2px;
   background-color: #b4e8ba;
+  height: 8vh;
 }
 
 .screen {
@@ -217,7 +229,7 @@
   padding: 5px;
   border: 1px solid grey;
   border-radius: 50px;
-  height: 7vh;
+  height: 8vh;
   background-color: whitesmoke;
   
 }
@@ -231,18 +243,27 @@
 
 .profpic{
   border: 2px solid #118f5f;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
-  margin: 2px 5px;
+  margin: 5px 5px;
+}
+
+.headerprofpic{
+  border: 2px solid #f02368;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin: 10px 10px;
 }
 
 .content{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding-left: 5px;
+  padding-left: 1px;
   flex-grow: 10;
+  font-size: 14px
 }
 
 .eachline {
@@ -525,8 +546,16 @@ background-color: #f36a98;
   padding: 5px 15px;
   margin:0;
   border-bottom: 1px solid green;
+  background-color: rgb(236, 163, 163);
+}
+
+.suggestedContact:hover {
+  padding: 5px 15px;
+  margin:0;
+  border-bottom: 1px solid #dd325d;
   background-color: whitesmoke;
 }
+
 .suggestedAvatar {
   width:25px;
   border-radius: 20px;

@@ -2,6 +2,9 @@ import React from 'react'
 import Conversation from './Conversation'
 import axios from 'axios'
 import { saveConvList } from '../action/conversation'
+import ConversationContainer from '../container/ConversationContainer'
+
+
 
 export default class ConvList extends React.Component {
   constructor(props){
@@ -19,6 +22,7 @@ export default class ConvList extends React.Component {
     suggestedUsers:[]
     }
     this.handleRequest=this.handleRequest.bind(this)
+    this.handleClickFunction = this.handleClickFunction.bind(this)
 
   }
   
@@ -54,18 +58,34 @@ export default class ConvList extends React.Component {
     fdata.append('size', 4 )
 
     axios.post('https://api.paywith.click/explore/search/contacts/',fdata)
+      .then((response) => {
+        
+        this.setState({suggestedUsers:response.data.data.users} )
+      })
+      .catch((error) => {
+        console.log('1111111111',error);
+      }); 
+  }
+
+ handleClickFunction(e, user){
+  console.log('userhandleclick:::::::', user)
+  let fdata = new FormData()
+  fdata.append('token',this.state.token )
+  fdata.append('user_id', user.id)
+  console.log('userId',user.id);
+  axios.post('https://api.paywith.click/conversation/',fdata)
     .then((response) => {
       console.log('response',response);
-      this.setState({suggestedUsers:response.data.data.users} )
+      // this.setState({suggestedUsers:response.data.data.users} )
     })
     .catch((error) => {
       console.log('1111111111',error);
     }); 
-  }
 
-
+ }
    
   render () {
+    console.log('suggestedusers:::::', this.state.suggestedUsers)
     return (
       <div className='convlistclass'>
         <div className='searchContactContainer'>
@@ -74,25 +94,33 @@ export default class ConvList extends React.Component {
           placeholder ='...جست و جوی مخاطبین'
           onChange = {(e)=> this.handleChange(e)}
           />
+         
         </div>
         { this.state.suggestedUsers.map((user, index) => {
             return(
-              <p className='suggestedContact'><img src={user.avatar_url} className='suggestedAvatar' /> {user.email}</p>
+              <p className='suggestedContact' key={index}
+              onClick={ (e) => this.handleClickFunction(e, user) }><img src={user.avatar_url} className='suggestedAvatar' /> {user.email} {user.id}</p>
             )
         })}
-        
+        <div className='yourConvList'>
+          <p style={{ margin :'0px'}}>لیست چت های شما</p>
+        </div>
         {this.props.conversationList.map((conversation, index)=>{
           return(
             conversation.users.map((user, idx) => {
               if(user.id != this.state.myId) {
+                
                 return(
-                  <Conversation
+                  
+                  <ConversationContainer
+                    convId={conversation.id}
                     key={index}       
-                    name={user.name}
+                    name={user.email}
                     date={conversation.latest_message_date}
-                    latestMessage={conversation.latest_Message.length>50 ? conversation.latest_Message.slice(0,50) : conversation.latestMessage}
+                    latestMessage={conversation.latest_Message}
                     numberOfUnseen={conversation.unseen_messages}
                     avatar= {user.avatar_url}
+                    user={user}
                    />
                   )
                }

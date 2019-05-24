@@ -17,6 +17,7 @@ export default class Footer extends React.Component {
     onChangeText(e){
       this.setState({newMessage: e.target.value})
       // this.props.getNewMessage(e.target.value)
+      
     }
     sendNewMessage(){
       this.props.dispatch(addNewMessage(this.state.newMessage))
@@ -72,7 +73,7 @@ export default class Footer extends React.Component {
           </div>
           <input 
             className='inputmessage' 
-            placeholder='پیام خود را وارد کنید' 
+            placeholder='...پیام خود را وارد کنید' 
             value={this.state.newMessage}
             onChange={(e)=> this.onChangeText(e)}
             onKeyPress={(e) => this.handlePress(e)}/>
