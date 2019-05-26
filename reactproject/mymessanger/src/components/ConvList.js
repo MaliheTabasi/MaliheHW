@@ -12,7 +12,7 @@ export default class ConvList extends React.Component {
       myId: window.localStorage.getItem('id'),
       token: window.localStorage.getItem('token'),
       conversationList:[],
-    suggestedUsers:[]
+      suggestedUsers:[]
     }
     this.handleRequest=this.handleRequest.bind(this)
     this.handleClickFunction = this.handleClickFunction.bind(this)
@@ -33,6 +33,7 @@ export default class ConvList extends React.Component {
     })
     .then(response => {
       this.props.dispatch(saveConvList(response.data.data.conversation_details))
+      console.log('convlist:::::::',response.data.data.conversation_details);
     })
     .catch(error => {
       console.log('1111111111',error);
@@ -99,7 +100,6 @@ export default class ConvList extends React.Component {
         </div>
         <div className='scroll'>    
           {this.props.conversationList.map((conversation, index)=>{
-            console.log('unseeeeeeeeeen',conversation)
             return(
               conversation.users.map((user, idx) => {
                 if(user.id != this.state.myId) {               
@@ -123,7 +123,7 @@ export default class ConvList extends React.Component {
           ) 
         }
       </div>
-       </div>
+      </div>
     )
   }
 }

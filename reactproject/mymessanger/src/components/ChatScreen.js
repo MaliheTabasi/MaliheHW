@@ -12,9 +12,10 @@ export default class ChatScreen extends React.Component {
     
   render () {
     return (
-      <div className='scroll'>
+     
         <div className='screen'>
-          {console.log('heeeeeeeere', this.props.messages)}
+           <div className='scroll'>
+          {console.log(' chat screen heeeeeeeere', this.props)}
           {this.props.messages.map((item,index)=>{
           if (item.sender.id== this.state.myId){
             return(              
@@ -32,7 +33,8 @@ export default class ChatScreen extends React.Component {
           }  
           )}
          </div>
-        </div> 
+         </div>
+        
      )
    }
 }

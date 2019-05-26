@@ -18,7 +18,7 @@ export default class Chat extends React.Component {
   // }
 
   render () {
-    return (
+    return (   
       <div className='chatcontainer'>
         <HeaderContainer/>
         <ChatScreenContainer />

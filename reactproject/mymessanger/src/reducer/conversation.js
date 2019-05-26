@@ -30,12 +30,12 @@ switch(action.type){
         convId: action.payload
      }
      case 'ADD_NEW_MESSAGES' :
-         console.log('this reducer', this)
     return {
+        ...state ,
         messages:[
             ...state.messages ,{
                 sender:{
-                    id: window.localStorage.getItem('id')
+                  id:window.localStorage.getItem('id')
                 },
                 text:action.payload
             } 

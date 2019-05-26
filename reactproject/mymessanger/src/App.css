@@ -1,10 +1,7 @@
-
 @font-face {
   font-family:'nazi';
   src:url('fonts/Bnazanb.ttf')
 }
-
-
 
 .App {
   background-image: url('./images/100.jpg');
@@ -21,6 +18,7 @@
 .opacity{
   opacity: 1;
 }
+
 .container {
   opacity:0.9;
   width: 450PX;
@@ -33,6 +31,7 @@
   transition-timing-function: ease;
   margin-top: 100px;
 }
+
 .container:hover {
   opacity: 1;
 }
@@ -43,6 +42,7 @@
   transition: width 1s;
   transition-timing-function: ease;
 }
+
 .welcome{
   text-shadow: 1px 1px 2px  #f02368, 0 0 25px #d39aad, 0 0 5px rgb(255, 55, 138);;
   font-size: 22px;
@@ -71,11 +71,13 @@
 .email {
   position: relative;
 }
+
 .emailicon{
   position: absolute;
   margin-top: -36px;
   margin-left: 50px;
 }
+
 .input1:hover {
   border: 1.5px solid  #f02368;
   width:85%;
@@ -141,6 +143,7 @@
   color: #f02368;
   padding: 5px 20px;
 }
+
 .searchContact{
   width: 25vw;
   height: 4vh;
@@ -148,8 +151,7 @@
   background-color: white;
   padding: 3px;
   text-align: right;
-  font-family: nazi;
-  
+  font-family: nazi;  
 }
 
 .searchContactContainer{
@@ -190,7 +192,6 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  flex-grow: 1;
   align-items: center;
   border: 1px solid grey;
   border-radius: 50px;
@@ -209,19 +210,19 @@
   background-color: whitesmoke; 
   display: flex;
   flex-direction: column;
+  height: 82vh;
   justify-content: flex-end;
 }
 
 .footer {
   display: flex;
   flex-direction: row;
-  flex-grow: 1;
   justify-content: space-around;
   align-items: center;
   padding: 5px;
   border: 1px solid grey;
   border-radius: 50px;
-  height:6vh;
+  height:7vh;
   background-color: whitesmoke;
 }
 
@@ -291,6 +292,7 @@
   color: gray;
   font-size: 12px;
 }
+
 .numberofunseen { 
   color: #fff;
   text-align: center;
@@ -301,24 +303,7 @@
   padding: 0px 5px;
 }
 
-/* .SendScreen {
-  border: 1px solid green;
-  background-color: green;
-  color: white;
-  width: 50%;
-  margin-left: 510px; */
-
-/* } */
-/* .RecieveScreen {
-  border: 1px solid rgb(226, 11, 137);
-  background-color: rgb(226, 11, 137);
-  color: white;
-  width: 50%;
-  margin-left: 0px;
-}
- */
 .inputmessage {
-  /* overflow: visible; */
   width: 56vw;
   height: 4vh;
   border: 1px solid white;
@@ -339,6 +324,7 @@
   padding-right: 10px;
   cursor: pointer;
 }
+
 .emojiContainer{
   display: flex;
   flex-direction: column;
@@ -382,6 +368,7 @@
   max-width: 45%;
   opacity: 0.9;
 }
+
 .profPage {
   background-image: url('./images/6.jpg');
   background-size: cover;
@@ -394,6 +381,7 @@
   font-family: nazi;
   font-size: 12px;
 }
+
 .profPageContainer {
   opacity: 0.9;
   display: flex;
@@ -405,6 +393,7 @@
   transition: opacity 2s;
 
 }
+
 .profPageContainer:hover {
   opacity: 1;
 }
@@ -417,10 +406,12 @@
   margin-top: 40px;
   background: white;
 }
+
 .uploadProfPic{
   font-size: 14px;
   margin-right: 7px;
 }
+
 .profilePicturetext{
   display: flex;
   flex-direction: column;
@@ -428,13 +419,14 @@
   justify-content: flex-start;
   height: 320px;
 }
+
 .top{
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 100%;
-
 }
+
 .inputtop{
   display: flex;
   flex-direction: row;
@@ -444,6 +436,7 @@
   flex-grow: 2;
   height: 45vh;
 }
+
 .bot{
   display: flex;
   flex-direction: row;
@@ -451,13 +444,14 @@
   width: 100%;
   height: 25vh;
 }
+
 .bio {
- 
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   width: 70%;
 }
+
 .logoProfileContainer {
   width: 29%;
   display: flex;
@@ -466,6 +460,7 @@
   justify-content: center;
   padding-bottom: 20px;
 }
+
 .bioInput{
   text-align: right;
   width: 80%;
@@ -477,6 +472,7 @@
   margin-right: 10px;
   max-length:700 ;
 }
+
 .inputLeft {
   display: flex;
   flex-direction: column;
@@ -485,6 +481,7 @@
   width: 45%;
   align-items: flex-end;
 }
+
 .inputRight {
   display: flex;
   flex-direction: column;
@@ -493,6 +490,7 @@
   text-align: right;
   padding-right: 40px;
 }
+
 .spans{
   margin-left: 10px;
  font-size: 16px;
@@ -503,9 +501,11 @@
   transition: width 1s;
   transition-timing-function: ease;
 }
+
 .logoProfile:hover {
   width: 120px;
 }
+
 .hendoone {
   border: 1px solid antiquewhite;
   border-radius: 5px;
@@ -518,10 +518,12 @@
   transition: 1s;
   transition-timing-function: ease;
 }
+
 .hendoone:hover {
-font-size: 25px;
-background-color: #f36a98;
+  font-size: 25px;
+  background-color: #f36a98;
 }
+
 .inputs {
   width:100px;
   border: 1px solid grey;
@@ -533,10 +535,12 @@ background-color: #f36a98;
   padding: 1px 5px;
   font-size: 16px;
 }
+
 .inputs:hover {
   border: 1px solid #dd325d;
   width:110px;
 }
+
 .profileSubmit {
   font-size: 15px;
   display: block;
@@ -553,6 +557,7 @@ background-color: #f36a98;
   transition:  0.5s;
   transition-timing-function: ease;
 }
+
 .profileSubmit:hover  {
   background-color: #099b21; 
   font-size: 17px;
@@ -567,7 +572,6 @@ background-color: #f36a98;
   font-size: 12px;
 }
 
-
 .suggestedContact:hover {
   border-bottom: 1px solid #dd325d;
   background-color: rgb(236, 163, 163);
@@ -577,6 +581,7 @@ background-color: #f36a98;
   width:25px;
   border-radius: 20px;
 }
+
 .scroll{
   overflow-y: scroll;
 }

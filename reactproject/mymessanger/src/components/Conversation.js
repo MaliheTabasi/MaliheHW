@@ -20,19 +20,19 @@ handleConversation(e) {
   let fdata = new FormData()
   fdata.append('token',this.state.token )
   fdata.append('conversation_id', this.props.convId )
-  fdata.append('size', 10 )
+  fdata.append('size', 50 )
   const roundDate=Math.round(new Date().getTime()/1000 )
   fdata.append('date', roundDate )
 
   axios.post('https://api.paywith.click/conversation/details/',fdata)
     .then(response => {
       this.props.dispatch(saveChatScreenMessages(response.data.data.messages))
-      console.log('messsssssssssssssssssss',response.data.data.messages)
+      // console.log('messsssssssssssssssssss',response.data.data.messages)
     })
     .catch(error => {
-      console.log('1111111111',error);
+      console.log('error conversation',error);
     }); 
-    console.log('this.prps::::',this.props);
+
     const convID=this.props.convId
     this.props.dispatch(saveConversationId(convID))
 }
@@ -61,7 +61,7 @@ handleConversation(e) {
             </span>
             {/* {this.props.numberofunseen===0 } */}
             <span className='numberofunseen'>
-              {this.props. numberOfUnseen}
+              {this.props.numberOfUnseen}
             </span>
           </div>
          </div>

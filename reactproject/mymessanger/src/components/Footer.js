@@ -3,9 +3,8 @@ import 'emoji-mart/css/emoji-mart.css'
 import { Picker } from 'emoji-mart'
 import emojiicon from '../images/emojiicon.png'
 import sendicon from '../images/sendicon.png'
-import conversation from '../reducer/conversation';
 import axios from 'axios'
-import { AddNewMessages } from '../action/conversation';
+import {AddNewMessages} from '../action/conversation';
 
 
 export default class Footer extends React.Component {
@@ -14,16 +13,17 @@ export default class Footer extends React.Component {
         this.state = {
           openEmoji:false,
           newMessage :'',
-          token: window.localStorage.getItem('token')
-         }
-    }
+          token: window.localStorage.getItem('token'),
+          myId:window.localStorage.getItem('id')
+         }        
+     }
 
     onChangeText(e){
       this.setState({newMessage: e.target.value})    
-    }
+     }
 
     sendNewMessage(){ 
-    //  this.props.dispatch(AddNewMessages(this.state.newMessage)) 
+      this.props.dispatch(AddNewMessages( this.state.newMessage)) 
       let fdata = new FormData()
       fdata.append('token',this.state.token )
       fdata.append('conversation_id', this.props.convId )
@@ -37,8 +37,8 @@ export default class Footer extends React.Component {
         })
         .catch((error) => {
           console.log('Footer Error:::::',error);
-        }); 
-    }
+       }); 
+     } 
   
     handlePress =(e) => {
       if(e.key === 'Enter'){   
@@ -56,7 +56,7 @@ export default class Footer extends React.Component {
             console.log('Footer Error:::::',error);
           }); 
        }
-    }
+     }
 
     addEmoji = (e) => {
       //console.log(e.unified)

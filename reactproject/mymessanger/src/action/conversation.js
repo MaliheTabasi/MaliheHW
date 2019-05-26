@@ -28,6 +28,6 @@ export const saveConversationId = (convId) => ({
 export const AddNewMessages = (newMessage) => ({
 
     type:'ADD_NEW_MESSAGES',
-    payload: newMessage
+    payload: newMessage 
 
 })

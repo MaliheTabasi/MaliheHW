@@ -7,6 +7,7 @@ const mapStateToProps = state => {
        
         messages: state.messages,
         newMessage: state.newMessage
+        
     }
 }
 
