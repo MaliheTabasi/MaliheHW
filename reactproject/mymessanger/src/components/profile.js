@@ -49,7 +49,7 @@ handleClick(){
                 <div className='top'>
                     <div className='profilePicturetext'>
                         <img className='profilePicture' src={ profilePicture}/>
-                        <p style={{ fontSize:'15px'}} >لطفا عکس پروفایل خود را بارگذاری نماید</p>
+                        <p className='uploadProfPic' >لطفا عکس پروفایل خود را بارگذاری نماید</p>
                     </div>
                     <div className='inputtop'>
                         <div className='inputLeft' >
@@ -105,7 +105,7 @@ handleClick(){
                 <div className='bot'>               
                     <div className='bio'>
                         <textarea name='bio' className='bioInput' placeholder='لطفا حداکثر در 700 کاراکتر خود را توصیف کنید' onChange={(e) => this.handleChange(e)}/>
-                        <span>:درباره‌ی من</span>
+                        <span className='spans'>:درباره‌ی من</span>
                     </div>
                     <div className='logoProfileContainer'>
                         <img className='logoProfile' src={logo}/>     

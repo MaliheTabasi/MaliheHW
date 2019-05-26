@@ -3,8 +3,7 @@ import Conversation from './Conversation'
 import axios from 'axios'
 import { saveConvList } from '../action/conversation'
 import ConversationContainer from '../container/ConversationContainer'
-
-
+import {addMessages} from '../action/conversation'
 
 export default class ConvList extends React.Component {
   constructor(props){
@@ -12,13 +11,7 @@ export default class ConvList extends React.Component {
     this.state={
       myId: window.localStorage.getItem('id'),
       token: window.localStorage.getItem('token'),
-      conversationList: [
-      //   {name:'علیرضا',
-      //   date:'3/2',
-      //   latestMessage:'salamm000000000000000000000000000000000000000000000000000000000000mm',
-      //   numberofunseen:'50000002'
-      // }
-    ],
+      conversationList:[],
     suggestedUsers:[]
     }
     this.handleRequest=this.handleRequest.bind(this)
@@ -68,14 +61,13 @@ export default class ConvList extends React.Component {
   }
 
  handleClickFunction(e, user){
-  console.log('userhandleclick:::::::', user)
   let fdata = new FormData()
   fdata.append('token',this.state.token )
   fdata.append('user_id', user.id)
-  console.log('userId',user.id);
+ 
   axios.post('https://api.paywith.click/conversation/',fdata)
     .then((response) => {
-      console.log('response',response);
+      console.log('response printed',response);
       // this.setState({suggestedUsers:response.data.data.users} )
     })
     .catch((error) => {
@@ -97,39 +89,40 @@ export default class ConvList extends React.Component {
          
         </div>
         { this.state.suggestedUsers.map((user, index) => {
-            return(
-              <p className='suggestedContact' key={index}
-              onClick={ (e) => this.handleClickFunction(e, user) }><img src={user.avatar_url} className='suggestedAvatar' /> {user.email} {user.id}</p>
-            )
+          return(
+            <p className='suggestedContact' key={index}
+            onClick={ (e) => this.handleClickFunction(e, user) }><img src={user.avatar_url} className='suggestedAvatar' /> {user.email} {user.id}</p>
+          )
         })}
         <div className='yourConvList'>
-          <p style={{ margin :'0px'}}>لیست چت های شما</p>
+          <p style={{ margin :'5px'}}>لیست چت های شما</p>
         </div>
-        {this.props.conversationList.map((conversation, index)=>{
-          return(
-            conversation.users.map((user, idx) => {
-              if(user.id != this.state.myId) {
-                
-                return(
-                  
-                  <ConversationContainer
-                    convId={conversation.id}
-                    key={index}       
-                    name={user.email}
-                    date={conversation.latest_message_date}
-                    latestMessage={conversation.latest_Message}
-                    numberOfUnseen={conversation.unseen_messages}
-                    avatar= {user.avatar_url}
-                    user={user}
-                   />
-                  )
-               }
-              }
-           )     
-        )
-       } 
-        ) 
-      }
+        <div className='scroll'>    
+          {this.props.conversationList.map((conversation, index)=>{
+            console.log('unseeeeeeeeeen',conversation)
+            return(
+              conversation.users.map((user, idx) => {
+                if(user.id != this.state.myId) {               
+                  return(                           
+                    <ConversationContainer
+                      convId={conversation.id}
+                      key={index}       
+                      name={user.email}
+                      date={conversation.latest_message_date}
+                      latestMessage={conversation.latest_message}
+                      numberOfUnseen={conversation.unseen_messages.myId }
+                      avatar= {user.avatar_url}
+                      user={user}
+                    />
+                    )
+                }
+                }
+            )     
+          )
+        } 
+          ) 
+        }
+      </div>
        </div>
     )
   }

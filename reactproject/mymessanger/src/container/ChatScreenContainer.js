@@ -4,8 +4,9 @@ import  ChatScreen from '../components/ChatScreen'
 
 const mapStateToProps = state => { 
     return {
-        newMessage: state.newMessage,
-        messages: state.messages
+       
+        messages: state.messages,
+        newMessage: state.newMessage
     }
 }
 

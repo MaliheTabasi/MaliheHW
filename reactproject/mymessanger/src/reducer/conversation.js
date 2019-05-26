@@ -9,11 +9,6 @@ const INIT ={
 
 function conversation (state = INIT,action)  {
 switch(action.type){
-    case 'SAVE_NEW_MESSAGE' :
-    return {
-        ...state ,
-        newMessage: action.payload,
-     }
     case 'SAVE_CONVERSATION_LIST' :
     return {
         ...state ,
@@ -29,7 +24,23 @@ switch(action.type){
         ...state ,
         user: action.payload
      }
-
+     case 'SAVE_CONVERSATION_ID' :
+    return {
+        ...state ,
+        convId: action.payload
+     }
+     case 'ADD_NEW_MESSAGES' :
+         console.log('this reducer', this)
+    return {
+        messages:[
+            ...state.messages ,{
+                sender:{
+                    id: window.localStorage.getItem('id')
+                },
+                text:action.payload
+            } 
+        ] 
+     }
 
     default:
     return state

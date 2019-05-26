@@ -10,7 +10,6 @@ export default class Header extends React.Component {
         return (
     <div className='header'>
           <img className='headerprofpic' src={this.props.user.avatar_url} />
-         {console.log('userrrrrrrrr',this.props.user) }
           <span>{this.props.user.email}</span>
     </div>
         )

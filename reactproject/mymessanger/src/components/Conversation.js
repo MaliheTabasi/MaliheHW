@@ -3,6 +3,9 @@ import profilepic from '../images/profilepic.jpg'
 import axios from 'axios'
 import {saveChatScreenMessages} from '../action/conversation'
 import { UserToHeader } from '../action/conversation'
+import { saveConversationId } from '../action/conversation'
+
+
 export default class Conversation extends React.Component {
   constructor(props){
     super(props)
@@ -23,12 +26,15 @@ handleConversation(e) {
 
   axios.post('https://api.paywith.click/conversation/details/',fdata)
     .then(response => {
-      console.log('response handle conversation',response);
       this.props.dispatch(saveChatScreenMessages(response.data.data.messages))
+      console.log('messsssssssssssssssssss',response.data.data.messages)
     })
     .catch(error => {
       console.log('1111111111',error);
     }); 
+    console.log('this.prps::::',this.props);
+    const convID=this.props.convId
+    this.props.dispatch(saveConversationId(convID))
 }
 
 
@@ -55,7 +61,7 @@ handleConversation(e) {
             </span>
             {/* {this.props.numberofunseen===0 } */}
             <span className='numberofunseen'>
-              {this.props.numberofunseen}
+              {this.props. numberOfUnseen}
             </span>
           </div>
          </div>

@@ -1,9 +1,4 @@
-export const addNewMessage = (newMessage) => ({
 
-        type:'SAVE_NEW_MESSAGE',
-        payload: newMessage
-
-})
 export const saveConvList = (conversationList) => ({
 
     type:'SAVE_CONVERSATION_LIST',
@@ -24,3 +19,15 @@ export const UserToHeader = (user) => ({
 
 })
  
+export const saveConversationId = (convId) => ({
+
+    type:'SAVE_CONVERSATION_ID',
+    payload: convId
+
+})
+export const AddNewMessages = (newMessage) => ({
+
+    type:'ADD_NEW_MESSAGES',
+    payload: newMessage
+
+})

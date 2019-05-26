@@ -3,7 +3,9 @@ import 'emoji-mart/css/emoji-mart.css'
 import { Picker } from 'emoji-mart'
 import emojiicon from '../images/emojiicon.png'
 import sendicon from '../images/sendicon.png'
-import {addNewMessage} from '../action/conversation'
+import conversation from '../reducer/conversation';
+import axios from 'axios'
+import { AddNewMessages } from '../action/conversation';
 
 
 export default class Footer extends React.Component {
@@ -12,21 +14,47 @@ export default class Footer extends React.Component {
         this.state = {
           openEmoji:false,
           newMessage :'',
+          token: window.localStorage.getItem('token')
          }
     }
+
     onChangeText(e){
-      this.setState({newMessage: e.target.value})
-      // this.props.getNewMessage(e.target.value)
-      
+      this.setState({newMessage: e.target.value})    
     }
-    sendNewMessage(){
-      this.props.dispatch(addNewMessage(this.state.newMessage))
-      this.setState({newMessage:''})
+
+    sendNewMessage(){ 
+    //  this.props.dispatch(AddNewMessages(this.state.newMessage)) 
+      let fdata = new FormData()
+      fdata.append('token',this.state.token )
+      fdata.append('conversation_id', this.props.convId )
+      fdata.append('text', this.state.newMessage )
+
+      axios.post('https://api.paywith.click/conversation/create/',fdata)
+        .then((response) => {      
+          console.log('messssage:::::',response);
+
+          this.setState({newMessage:''})
+        })
+        .catch((error) => {
+          console.log('Footer Error:::::',error);
+        }); 
     }
+  
     handlePress =(e) => {
-      if(e.key === 'Enter'){
-        this.props.dispatch(addNewMessage(this.state.newMessage))
-        this.setState({newMessage:''})
+      if(e.key === 'Enter'){   
+        let fdata = new FormData()
+        fdata.append('token',this.state.token )
+        fdata.append('conversation_id', this.props.convId )
+        fdata.append('text', this.state.newMessage )
+
+        axios.post('https://api.paywith.click/conversation/create/',fdata)
+          .then((response) => {      
+            console.log('messssage:::::',response);
+            this.setState({newMessage:''})
+          })
+          .catch((error) => {
+            console.log('Footer Error:::::',error);
+          }); 
        }
     }
 
