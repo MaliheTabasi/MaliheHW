@@ -27,6 +27,7 @@ handleConversation(e) {
   axios.post('https://api.paywith.click/conversation/details/',fdata)
     .then(response => {
       this.props.dispatch(saveChatScreenMessages(response.data.data.messages))
+   
       // console.log('messsssssssssssssssssss',response.data.data.messages)
     })
     .catch(error => {

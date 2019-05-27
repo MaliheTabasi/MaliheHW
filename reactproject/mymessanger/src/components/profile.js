@@ -2,45 +2,47 @@ import React from 'react'
 import '../App.css'
 import validate from '../validation/validateFunction'
 import profilePicture from '../images/profilepicture.png'
-import logo from './hendoone.png'
+import logo from '../images/hendoone.png'
+import { DatePicker } from 'react-persian-datepicker'
+
 
 class Profile extends React.Component {
-constructor(){
-    super()
-    this.state= {
-        firstName: '',
-        lastName: '',
-        phoneNumber:'',
-        city:'',
-        job:'',
-        gender:'',
-        birthday:'',
-        marriage:'',
-        bio:'',
-        error:{
-            firstName: null,
-            lastName: null,
-            phoneNumber:null,
-            city:null,
-            job:null,
-            gender:null,
-            birthday:null,
-            marriage:null,
-            bio:null
-
+    constructor(){
+        super()
+        this.state= {
+            firstName: '',
+            lastName: '',
+            phoneNumber:'',
+            city:'',
+            job:'',
+            gender:'',
+            birthday:'',
+            marriage:'',
+            bio:'',
+            error:{
+                firstName: null,
+                lastName: null,
+                phoneNumber:null,
+                city:null,
+                job:null,
+                gender:null,
+                birthday:null,
+                marriage:null,
+                bio:null
+            }
         }
     }
-}
-handleChange(e) {
+ handleChange(e) {
     var name = e.target.name
     this.setState({[name]: e.target.value})
     console.log(this.state)
-}
-handleClick(){
+ }
+ handleClick(){
     var firstNameError= validate('firstName' , this.state.firstName)
     var lastNameError= validate('lastName' , this.state.lastName)
-    this.setState({ ...this.state, error:{ ...this.state.error , firstName:firstNameError, lastName: lastNameError }}, ()=>{ console.log('emailerror',this.state.error)})
-}
+    var phoneNumberError= validate('phoneNumber',this.state.phoneNumber)
+    this.setState({ ...this.state, error:{ ...this.state.error , firstName:firstNameError, lastName: lastNameError, phoneNumber: phoneNumberError }}, ()=>{ console.log('emailerror',this.state.error)})
+ }
 
  render() {
     return(
@@ -65,9 +67,9 @@ handleClick(){
                                 <span className='spans'>:جنسیت</span>
                             </div>
                             <div>
-                                <input name='birthday' className='birthday inputs' onChange={(e) => this.handleChange(e)}/>
-                                <span className='spans'>:تاریخ تولد</span>  
-                            </div> 
+                                <input name='birthday' className='birthday inputs' onChange={(e)=>this.handleChange(e)}/>
+                                <span className='spans'>:تاریخ تولد</span>
+                            </div>                      
                             <div>
                                 <select name='marriage' className='marriage inputs' onChange={(e) => this.handleChange(e)}>
                                     <option value="single">مجرد</option>
@@ -94,6 +96,9 @@ handleClick(){
                             <div>
                                 <input name='phoneNumber ' className='phoneNumber inputs' onChange={(e) => this.handleChange(e)}/>
                                 <span className='spans'>:شماره تلفن همراه</span> 
+                                {
+                                 this.state.error.phoneNumber !== null && <p className='error'>{this.state.error.phoneNumber}</p>
+                                }
                             </div>
                             <div>
                                 <input name='city' className='city inputs' onChange={(e) => this.handleChange(e)} />
@@ -104,7 +109,7 @@ handleClick(){
                 </div>
                 <div className='bot'>               
                     <div className='bio'>
-                        <textarea name='bio' className='bioInput' placeholder='لطفا حداکثر در 700 کاراکتر خود را توصیف کنید' onChange={(e) => this.handleChange(e)}/>
+                        <textarea name='bio' className='bioInput' placeholder='لطفا خود را توصیف کنید' onChange={(e) => this.handleChange(e)}/>
                         <span className='spans'>:درباره‌ی من</span>
                     </div>
                     <div className='logoProfileContainer'>

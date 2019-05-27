@@ -1,5 +1,4 @@
-
-import validateObject from './validateObject.js'
+ import validateObject from './validateObject.js'
 import validatejs from 'validate.js'
 
 export default function validate (fieldName, value) {

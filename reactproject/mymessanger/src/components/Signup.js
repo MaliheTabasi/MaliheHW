@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from './hendoone.png'
+import logo from '../images/hendoone.png'
 import '../App.css'
 import Background from '../images/2.jpg'
 import validate from '../validation/validateFunction'
@@ -17,47 +17,50 @@ export default class Signup extends React.Component {
     super(props)
     this.state = {
       email: '',
+      password: '',
       reTypePassword: '',
       error:{
         email:null,
         password:null,
         reTypePassword:null
       },
-      rePassError:'',
-      password: '',
+      rePassError:null
     }
   }
 
 
   handleChange (e) {
     var name = e.target.name
-    this.setState({ [name]: e.target.value } ,console.log("here", this.state))
+    this.setState({ [name]: e.target.value })
   }
 
   handleClick () {
-    // var emailError = validate('email', this.state.email)
-    // var passwordError= validate('password', this.state.password)
-    // var reTypePasswordError= validate('reTypePassword', this.state.reTypePassword)
-    // this.setState({...this.state, error: {...this.state.error, email:emailError, password: passwordError, reTypePassword: reTypePasswordError}})
+    var emailError = validate('email', this.state.email)
+    var passwordError= validate('password', this.state.password)
+    var reTypePasswordError= validate('reTypePassword', this.state.reTypePassword)
+    this.setState({...this.state, error: {...this.state.error, email:emailError, password: passwordError, reTypePassword: reTypePasswordError}},()=>{
     if(this.state.password === this.state.reTypePassword) {
-      let data =  {
-        email: this.state.email,
-        password: this.state.password
+      if(  (this.state.error.email == null) && (this.state.error.password == null)  && (this.state.error.reTypePassword == null) ){
+        let data =  {
+          email: this.state.email,
+          password: this.state.password
+        }
+        axios.post('https://api.paywith.click/auth/signup/', data)
+        .then(function (response)  {
+          console.log('response::::', response);
+          window.localStorage.setItem('token', response.data.token)
+          window.localStorage.setItem('id', response.data.id)
+        })
+        .catch(function (error) {
+          console.log('error:::::',error);
+        });
       }
-      axios.post('https://api.paywith.click/auth/signup/', data)
-      .then(function (response)  {
-        console.log('response::::', response);
-        window.localStorage.setItem('token', response.data.token)
-        window.localStorage.setItem('id', response.data.id)
-      })
-      .catch(function (error) {
-        console.log('error:::::',error);
-      });
+      this.setState({rePassError: null})
     } else{
-      this.setState({rePassError:'.رمزهای وارد شده مشابه نیستند. لطفا دقت نمایید'})
+      this.setState({rePassError: '.رمزهای وارد شده مشابه نیستند. لطفا دقت نمایید'})
     }
     
-    
+  })
   }
   render () {
     return (
@@ -72,27 +75,27 @@ export default class Signup extends React.Component {
             className='input1' 
             placeholder='ایمیل' 
             onChange={(e) => this.handleChange(e)} />
-            {/* {
+            {
               this.state.error.email !== null && <p className='error'>{this.state.error.email}</p>
-            } */}
+            }
             <input 
             name='password' 
             className='input1' 
             placeholder='رمز عبور' 
             type='password' 
             onChange={(e) => this.handleChange(e)} />
-            {/* {
+            {
               this.state.error.password !== null && <p className='error'>{this.state.error.password}</p>
-            } */}
+            }
             <input 
             name='reTypePassword' 
             className='input1' 
             placeholder='رمز عبور را دوباره وارد نمایید' 
             type='password' 
             onChange={(e) => this.handleChange(e)} />
-            {/* {
+            {
               this.state.error.reTypePassword !== null && <p className='error'>{this.state.error.reTypePassword}</p>
-            } */}
+            }
             { this.state.rePassError && <p className='error'>{this.state.rePassError}</p>}
             <button className='submit' onClick={() => this.handleClick()} >ثبت نام </button>
           </div>

@@ -22,7 +22,7 @@
 .container {
   opacity:0.9;
   width: 450PX;
-  height: 550px;
+  height: 580px;
   background-color: #ffeff2;
   margin: auto;
   border-radius: 40px;
@@ -584,4 +584,29 @@
 
 .scroll{
   overflow-y: scroll;
+}
+
+.dateinput{
+  padding: 1px 0px;
+  -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    padding: 1px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    -webkit-writing-mode: horizontal-tb !important;
 }
