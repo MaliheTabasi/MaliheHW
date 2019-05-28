@@ -3,21 +3,24 @@ import '../App.css'
 import validate from '../validation/validateFunction'
 import profilePicture from '../images/profilepicture.png'
 import logo from '../images/hendoone.png'
-import { DatePicker } from 'react-persian-datepicker'
+import {DatePicker} from 'react-advance-jalaali-datepicker'
+import axios from 'axios'
 
 
 class Profile extends React.Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state= {
+            myId: window.localStorage.getItem('id'),
+            token: window.localStorage.getItem('token'),
             firstName: '',
             lastName: '',
             phoneNumber:'',
             city:'',
             job:'',
-            gender:'',
-            birthday:'',
-            marriage:'',
+            gender:'female',
+            birthday:'1396/05/15',
+            marriage:'single',
             bio:'',
             error:{
                 firstName: null,
@@ -31,18 +34,55 @@ class Profile extends React.Component {
                 bio:null
             }
         }
+        this.change=this.change.bind(this)
     }
- handleChange(e) {
-    var name = e.target.name
-    this.setState({[name]: e.target.value})
-    console.log(this.state)
- }
- handleClick(){
-    var firstNameError= validate('firstName' , this.state.firstName)
-    var lastNameError= validate('lastName' , this.state.lastName)
-    var phoneNumberError= validate('phoneNumber',this.state.phoneNumber)
-    this.setState({ ...this.state, error:{ ...this.state.error , firstName:firstNameError, lastName: lastNameError, phoneNumber: phoneNumberError }}, ()=>{ console.log('emailerror',this.state.error)})
- }
+    change(unix, formatted) {
+        // console.log(unix); // returns timestamp of the selected value
+        //  console.log(formatted); // returns the selected value in the format you've entered
+        this.setState({birthday: formatted})
+    
+    }
+    DatePickerInput(props) {
+        return <input className="popo inputs" {...props} />;
+    }
+    handleChange(e) {
+        var name = e.target.name
+        this.setState({[name]: e.target.value})
+        console.log(this.state)
+    }
+    handleClick(){
+        var firstNameError= validate('firstName' , this.state.firstName)
+        var lastNameError= validate('lastName' , this.state.lastName)
+        var phoneNumberError= validate('phoneNumber',this.state.phoneNumber)
+        this.setState({ ...this.state, error:{ ...this.state.error , firstName:firstNameError, lastName: lastNameError, phoneNumber: phoneNumberError }}, ()=>{ console.log('emailerror',this.state.error)})
+       
+        let fdata = new FormData()
+        fdata.append('token',this.state.token )
+        fdata.append('description', this.state.bio )
+        fdata.append('user_type', 'organization' )
+        fdata.append('phone_number','989381442322' )
+        // fdata.append('avatar', this.state.bio )
+        fdata.append('location_lat',43 )
+        fdata.append('location_long',-79 )
+        fdata.append('mobile_number','98' + this.state.phoneNumber.slice(1) )
+        fdata.append('name', this.state.firstName + this.state.lastName )
+        fdata.append('website','https://google.com/' )
+        fdata.append('country_code','CA' )
+        fdata.append('address',this.state.city )
+
+
+        axios.post('https://api.paywith.click/auth/profile/', fdata)
+          .then(function (response)  {
+            console.log('response::::', response);
+          })
+          .catch(function (error) {
+            console.log('error:::::',error);
+          })
+        
+    }
+
+    
+
 
  render() {
     return(
@@ -66,8 +106,19 @@ class Profile extends React.Component {
                                 </select>
                                 <span className='spans'>:جنسیت</span>
                             </div>
-                            <div>
-                                <input name='birthday' className='birthday inputs' onChange={(e)=>this.handleChange(e)}/>
+                            <div style={{ display:'flex'}}>                             
+                                <DatePicker
+                                    inputComponent={this.DatePickerInput}
+                                    // placeholder="انتخاب تاریخ"
+                                    format="jYYYY/jMM/jDD"
+                                    onChange={this.change}
+                                    // onChange={(formatted)=> this.setState( {birthday: formatted})}
+                                    name='birthday'
+                                    preSelected={this.state.birthday}
+                                    // customClass='calender'
+                                    cancelOnBackgroundClick={true}
+                                    controllValue={true}
+                                    />
                                 <span className='spans'>:تاریخ تولد</span>
                             </div>                      
                             <div>
@@ -94,7 +145,7 @@ class Profile extends React.Component {
                                  } 
                             </div>
                             <div>
-                                <input name='phoneNumber ' className='phoneNumber inputs' onChange={(e) => this.handleChange(e)}/>
+                                <input name='phoneNumber' className='phoneNumber inputs' onChange={(e) => this.handleChange(e)}/>
                                 <span className='spans'>:شماره تلفن همراه</span> 
                                 {
                                  this.state.error.phoneNumber !== null && <p className='error'>{this.state.error.phoneNumber}</p>
