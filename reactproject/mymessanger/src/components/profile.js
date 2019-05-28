@@ -105,19 +105,19 @@ class Profile extends React.Component {
       <div className='profPage'>
         <div className='profPageContainer'>
           <div className='top'>
-            <div className='profilePicturetext'>
-              <input ref='file' type='file' name='file'
+            <div className='profilePicturetext'>         
+              <img className='profilePicture' src={profilePicture} /> 
+              <p className='uploadProfPic' >لطفا عکس پروفایل خود را بارگذاری نماید</p>
+              <input 
+                ref='file' 
+                type='file' 
+                name='file'
                 className='upload-file'
                 id='file'
+                style={{width: '180px'}}
                 onChange={this.handleChangeImage}
                 encType='multipart/form-data'
                 required />
-              {/* <img className='profilePicture'
-                             src={ profilePicture}
-                             onClick={this.handleChangeImage}
-                             ref="file" type="file" name="file"
-                             /> */}
-              <p className='uploadProfPic' >لطفا عکس پروفایل خود را بارگذاری نماید</p>
             </div>
             <div className='inputtop'>
               <div className='inputLeft' >
