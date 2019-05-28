@@ -40,8 +40,9 @@ export default class Footer extends React.Component {
        }); 
      } 
   
-    handlePress =(e) => {
+    handlePress = (e) => {
       if(e.key === 'Enter'){   
+        this.props.dispatch(AddNewMessages( this.state.newMessage)) 
         let fdata = new FormData()
         fdata.append('token',this.state.token )
         fdata.append('conversation_id', this.props.convId )

@@ -1,4 +1,4 @@
- import validateObject from './validateObject.js'
+import validateObject from './validateObject.js'
 import validatejs from 'validate.js'
 
 export default function validate (fieldName, value) {
@@ -17,16 +17,16 @@ export default function validate (fieldName, value) {
   //                       }
   var formFields = {}
   formFields[fieldName] = validateObject[fieldName]
-  console.log('formFields',formFields)
-  console.log('formValues',formValues)
+  console.log('formFields', formFields)
+  console.log('formValues', formValues)
   // The formValues and validated against the formFields
   // the variable result hold the error messages of the field
   const result = validatejs(formValues, formFields)
-  console.log('result',result)
+  console.log('result', result)
   // If there is an error message, return it!
   if (result) {
     // Return only the field error message if there are multiple
-   
+
     return result[fieldName][0]
   }
 

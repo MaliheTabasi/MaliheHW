@@ -1,18 +1,18 @@
-import {connect} from 'react-redux'
-import  Conversation from '../components/Conversation'
+import { connect } from 'react-redux'
+import Conversation from '../components/Conversation'
 
-const mapStateToProps = state =>{ 
-    return{
-        messages: state.messages
-    }
+const mapStateToProps = state => {
+  return {
+    messages: state.messages
+  }
 }
 
-const mapDispatchToProps = dispatch =>({
-    dispatch : dispatch
+const mapDispatchToProps = dispatch => ({
+  dispatch: dispatch
 })
 
-const ConversationContainer = connect (
-    mapStateToProps,
-    mapDispatchToProps
+const ConversationContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(Conversation)
 export default ConversationContainer

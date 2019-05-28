@@ -1,15 +1,13 @@
 import React from 'react'
-import Header from '../components/Header'
 import ChatScreenContainer from '../container/ChatScreenContainer'
 import FooterContainer from '../container/FooterContainer'
-import HeaderContainer from '../container/HeaderContainer';
-
+import HeaderContainer from '../container/HeaderContainer'
 
 export default class Chat extends React.Component {
-  constructor(){
+  constructor () {
     super()
-    this.state= {
-      newMessage :'',
+    this.state = {
+      newMessage: ''
     }
   }
   // getNewMessage(newMessage){
@@ -18,11 +16,11 @@ export default class Chat extends React.Component {
   // }
 
   render () {
-    return (   
+    return (
       <div className='chatcontainer'>
-        <HeaderContainer/>
+        <HeaderContainer />
         <ChatScreenContainer />
-        <FooterContainer  />
+        <FooterContainer />
       </div>
     )
   }
