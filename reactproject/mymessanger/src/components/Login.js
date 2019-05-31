@@ -5,6 +5,7 @@ import '../App.css'
 import validate from '../validation/validateFunction'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { withRouter } from "react-router"
 
 class Login extends React.Component {
   constructor (props) {
@@ -36,10 +37,11 @@ class Login extends React.Component {
             email: this.state.email,
             password: this.state.password
           })
-            .then(function (response) {
+            .then((response)=> {
               console.log('response::::', response)
               window.localStorage.setItem('token', response.data.data.token)
               window.localStorage.setItem('id', response.data.data.profile.id)
+              this.props.history.push('./Massenger')
             })
             .catch(function (error) {
               console.log('error:::::', error)
@@ -51,6 +53,7 @@ class Login extends React.Component {
   }
 
   render () {
+    console.log('props:::::', this.props)
     return (
       <div className='App'>
         <div className='container'>
@@ -85,4 +88,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login
+export default  withRouter(Login) 
